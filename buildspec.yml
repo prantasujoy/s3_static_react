@@ -20,6 +20,6 @@ phases:
       - echo "invalidating cache..."
       - aws cloudfront create-invalidation --distribution-id E2WJPGLZ61L61I --paths "/*"
 
-    on_failure:
-      commands:
+  on_failure:
+    commands:
       -echo "build failed,cache invalidation skipped"
