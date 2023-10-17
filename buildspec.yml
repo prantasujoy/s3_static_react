@@ -16,8 +16,10 @@ phases:
   post_build:
     commands:
       - echo "Copying build  to S3..."
-      - aws s3 sync builds/ s3://www.sujoydhar.xyz --delete
+      - aws s3 sync build/ s3://www.sujoydhar.xyz --delete
+      -echo "invalidating cache..."
       - aws cloudfront create-invalidation --distribution-id E2WJPGLZ61L61I --paths "/*"
 
     on_failure:
+      commands:
       -echo "build failed,cache invalidation skipped"
