@@ -16,4 +16,4 @@ phases:
   post_build:
     commands:
       - echo "Copying build  to S3..."
-      - aws s3 sync react_s3/build/ s3://www.sujoydhar.xyz --delete
+      - aws s3 sync react_s3/ s3://www.sujoydhar.xyz --delete
